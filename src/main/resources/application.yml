@@ -1,0 +1,25 @@
+server:
+  port: ${PORT:3031}
+  servlet:
+    application-display-name: microservice-java-registry
+
+logging:
+  level:
+    root: info
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 20
+    hostname: localhost
+  client:
+    registryFetchIntervalSeconds: 20
+    registerWithEureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 1
+
+spring:
+  application: 
+    name: microservice-java-registry
